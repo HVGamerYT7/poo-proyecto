@@ -16,7 +16,7 @@ import ventanas.Login;
 
 class Main {
   //variables globales
-
+  public static playlist metod = new playlist();
   public static Usuario persona;
   public static Meta metaLlegar;
   //public static ArrayList<playlist> playlists;
@@ -68,7 +68,7 @@ class Main {
 
       persona = new Usuario(nombre, edad, peso, altura);*/
       //persona.obtenerImc(peso, altura);
-      double imc = persona.getImc();
+      //double imc = persona.getImc();
       //pw.println(persona); //Guardar persona en archivo
 
       //pw.close();
@@ -104,7 +104,6 @@ class Main {
 
   public static void menu(Usuario persona){
     int flag;
-    playlist metod = new playlist();
     Scanner leer = new Scanner(System.in);
     Boolean ver = true;
     

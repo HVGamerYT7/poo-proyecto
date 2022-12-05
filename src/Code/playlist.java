@@ -10,8 +10,8 @@ public class playlist{
   private String tipoMusica;
   Scanner leer = new Scanner(System.in);
 
-  public static ArrayList<playlist> playlists;
-  ArrayList <Canciones> canciones = new ArrayList<Canciones>();
+  public static ArrayList<playlist> playlists = new ArrayList<>();
+  public static ArrayList<Canciones> canciones = new ArrayList<Canciones>();
   
   public void Crearplaylist(String nombre, String link, String tipoMusica)
   {
@@ -194,4 +194,8 @@ public class playlist{
         ver = false;
     }
   }
+
+    public void add(Canciones nueva) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

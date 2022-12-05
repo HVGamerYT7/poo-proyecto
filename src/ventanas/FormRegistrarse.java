@@ -158,25 +158,26 @@ public class FormRegistrarse extends javax.swing.JDialog {
                 if(cargarUsuario().getNombre().equals(nombre)){
                     JOptionPane.showMessageDialog(null,"El nombre de usuario ya esta en uso");
                     jTextFieldUsuario.setText(null);
+                    jPasswordField1.setText(null);
+                    jPasswordField2.setText(null);
                 }
         }
-        if((contraseña.equals(""))&&(confirmarContraseña.equals(""))){
+        else if((contraseña.equals(""))||(confirmarContraseña.equals(""))){
             JOptionPane.showMessageDialog(null,"Porfavor introduzca contraseña valida" );
             jPasswordField1.setAction(null);
             jPasswordField2.setAction(null);
         }
-        else if( (contraseña.equals(confirmarContraseña))&&(nombre!=null)){
+        else if( (!contraseña.equals(confirmarContraseña))){
+            JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden" );
+            jPasswordField1.setAction(null);
+            jPasswordField2.setAction(null);
+        }
+        else{
                 String usuario = nombre + ";" + contraseña + ";";
                 guardarUsuario(usuario,"datosPersona.txt");
 
                 JOptionPane.showMessageDialog(null,"Cuenta registrada con exito!" );
-                this.dispose();
-            
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden" );
-            jPasswordField1.setAction(null);
-            jPasswordField2.setAction(null);
+                this.dispose();    
         }
     }//GEN-LAST:event_jButtonRegistrarseActionPerformed
 
@@ -248,7 +249,6 @@ public class FormRegistrarse extends javax.swing.JDialog {
       
       escritor.close();//cerrar escritor
       escribir.close();
-      
     } catch(IOException e) {
       System.out.println(e);
     }
@@ -257,20 +257,23 @@ public class FormRegistrarse extends javax.swing.JDialog {
   public static Usuario cargarUsuario() {
     try {
       BufferedReader archivo = new BufferedReader(new FileReader("datosPersona.txt"));
-
+      if(archivo.readLine() != null){
       String linea; // leer primer linea
-      while ((linea = archivo.readLine()) != null) { // Avanzar siempre que existan lineas
-        String[] campos = linea.split(";"); // separar en campos por ";"
-        Usuario persona = new Usuario((campos[0]),(campos[1]));//Añadir camos a futuro!
-        archivo.close();
-        return persona;
+      while ((linea = archivo.readLine()) != null) { // Avanzar siempre que existan lineas   
       }
+      String[] campos = linea.split(";");
+      Usuario persona = new Usuario(campos[0],campos[1]);
+      archivo.close();
+      return persona;
+      }
+      return null;
     } catch (FileNotFoundException ex) {
       Logger.getLogger(FormRegistrarse.class.getName()).log(Level.SEVERE, null, ex);
+      return null;
     } catch (IOException e) {
       System.out.println(e);
+      return null;
     }
-    return null;
   }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

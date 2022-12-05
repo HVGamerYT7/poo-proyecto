@@ -59,23 +59,23 @@ public class Login extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 100, -1));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 120, -1));
 
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 100, -1));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 100, -1));
+        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 120, -1));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 120, -1));
 
         jLabeltxt1.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltxt1.setText("Usuario :");
-        getContentPane().add(jLabeltxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 60, 20));
+        getContentPane().add(jLabeltxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 60, 20));
 
         jLabeltxt2.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltxt2.setText("Contraseña :");
-        getContentPane().add(jLabeltxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+        getContentPane().add(jLabeltxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
         jButtonRegistrarse.setText("Registrarse");
         jButtonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class Login extends javax.swing.JFrame {
                 jButtonRegistrarseActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 100, -1));
+        getContentPane().add(jButtonRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 120, -1));
 
         jButtonLogin.setText("Entrar");
         jButtonLogin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,7 +99,7 @@ public class Login extends javax.swing.JFrame {
                 jButtonLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 100, -1));
+        getContentPane().add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 120, -1));
 
         jLabelDraw.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -161,7 +161,8 @@ public class Login extends javax.swing.JFrame {
             usuario = new Usuario(cargarUsuario().getNombre(),cargarUsuario().getContraseña());
             if ((nombreL.equals(usuario.getNombre())) && (contraseñaL.equals(usuario.getContraseña()))){
            JOptionPane.showMessageDialog(null,"Sesion iniciada con exito!" );
-           System.exit(0);
+           new Menu(this,true).setVisible(true);
+           this.dispose();
         }
         else{
             JOptionPane.showMessageDialog(null,"Usuario o Contraseña erronea" );
